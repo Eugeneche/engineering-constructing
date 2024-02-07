@@ -1,0 +1,85 @@
+@import '../../style/vars';
+
+nav {
+    height: 25px;
+}
+
+.main-menu {
+    position: fixed;
+    background: #ffffffe6;
+    z-index: 10;
+
+    /* max-width: $headerContainer; */
+    width: 100%;
+    height: fit-content;
+    margin: auto;
+    padding: 0 20px;
+/*     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center; */
+
+    .container {
+        max-width: $headerContainer;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .pages {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        text-transform: uppercase;    
+
+        a {
+            display: block;
+            width: max-content;
+            flex-grow: 1;
+            text-align: center;
+            text-decoration: none;
+            color: blue;
+            padding: 10px 0;
+            border: 1px solid #d9d9d9;
+        }
+    }
+}
+
+
+.flags {
+    display: flex;
+    align-items: center;
+
+    .flag {
+        height: 25px;
+        margin: 13px 0 13px 10px ;
+    }
+}
+
+
+@media screen and (max-width: 430px) {
+
+    .main-menu {
+    
+        .pages {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+
+            a {
+                margin: 0;
+            }
+        }
+    }
+
+    .flags {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        .flag {
+            margin: 0 5px;
+        }
+    }
+}

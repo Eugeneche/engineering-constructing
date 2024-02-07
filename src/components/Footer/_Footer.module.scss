@@ -1,0 +1,17 @@
+@import '../../style/vars';
+
+.footer {
+    background: #2a364b;
+    min-height: 50px;
+    color: #ffffff;
+
+    .container {
+        display: flex;
+        height: 50px;
+        flex-wrap: wrap;
+        align-content: center;
+        max-width: $contentContainer;
+        margin: auto;
+        padding: 0 20px;
+    }
+}

@@ -1,0 +1,50 @@
+.before-load {
+    position: relative;
+    overflow: hidden;
+}
+
+.before-load:nth-child(3n+1) {
+    top: 30px;
+}
+
+.before-load:nth-child(3n+2) {
+    top: 60px;
+}
+
+.before-load:nth-child(3n+3) {
+    top: 90px;
+}
+
+.after-load {
+    position: relative;
+    top: 0;
+    transition: top 0.5s, scale 0.5s;
+    overflow: hidden;
+}
+
+.after-load:hover {
+    transform: scale(1.005);
+    transition: all 0.3s;
+}
+
+.project-image:hover {
+    opacity: 0.7 !important;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .before-load:nth-child(2n+1) {
+        top: 30px;
+    }
+    
+    .before-load:nth-child(2n+2) {
+        top: 60px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    
+    .before-load:nth-child() {
+        top: 60px;
+    }
+}
