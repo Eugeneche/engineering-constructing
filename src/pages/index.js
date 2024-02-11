@@ -15,6 +15,7 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
   const {
     about_us_title,
     about_us_text,
+    read_more,
   } = useTranslations()
 
   const uniqueDirsAccodrdingToOrder = []
@@ -65,33 +66,44 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
 
               <div className={styles.container}>             
               <h2 className={styles.serviceTitle}>{title}</h2>
-                {worksList.map(obj2 => {
+              <div className={worksList.length === 1 ? styles.monoService : styles.multiplyServices}>
 
+                {worksList.map(obj2 => {                  
                   return (
                     <div key={obj2.childMdx.id}>
                       {worksList.length === 1 ?
-                        <div className={styles.monoService}>
+                        <div className={styles.serviceItem}>
                           <GatsbyImage 
                             image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
                             alt={obj2.childMdx.frontmatter.title}
                           />
-                          <p>{obj2.childMdx.excerpt}</p>
+                          <div>
+                            <p dangerouslySetInnerHTML={{ __html: obj2.childMdx.frontmatter.teaser }}></p>
+
+                            <LocalizedLink to={`/${obj2.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>{read_more}</LocalizedLink>
+                          </div> 
                         </div>
                          :
-                        <div className={styles.multiplyServices}>
+                        <div className={styles.serviceItem}>
+                          
                           <h3 className={styles.subserviceTitle}>{obj2.childMdx.frontmatter.title}</h3>
-                          <GatsbyImage 
+                          <GatsbyImage
                             image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
                             alt={obj2.childMdx.frontmatter.title}
                           />
-                          <p>{obj2.childMdx.excerpt}
-                            <LocalizedLink to={`/${obj2.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>Read more</LocalizedLink>
-                          </p>
+                          <div>
+                            <p dangerouslySetInnerHTML={{ __html: obj2.childMdx.frontmatter.teaser }}></p>
+
+                            <LocalizedLink to={`/${obj2.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>{read_more}</LocalizedLink>
+                          </div>
+
                         </div>                        
                       }
                     </div>
                   )
                 })}
+                </div>
+
               </div>
             </section>
           )
@@ -122,6 +134,7 @@ query getMainPageData {
         frontmatter {
           category
           title
+          teaser
           image {
             childImageSharp {
               gatsbyImageData(aspectRatio: 1)
@@ -132,7 +145,7 @@ query getMainPageData {
           locale
         }
         id
-        excerpt(pruneLength: 150)
+        
       }
       relativeDirectory
     }

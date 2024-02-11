@@ -51,7 +51,8 @@ a {
 h1 {
   line-height: normal;
   font-size: clamp(1.5rem, 5vw, 1.8rem);
-  font-weight: 700;
+  font-weight: 600;
+  margin: clamp(1.2rem, 2vw, 1.5rem) 0;
   text-transform: uppercase;
   text-align: center;
   /* color: #181818; */
@@ -126,7 +127,7 @@ html, body {
 main {
   flex-grow: 1;
   /* background: #fbfbfb; */
-  padding-top: 64px;  /* for case when main menu has position fixed */
+  padding-top: 87px;  /* for case when main menu has position fixed */
 }
 
  /* for case when main menu has position fixed */

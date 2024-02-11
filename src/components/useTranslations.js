@@ -39,7 +39,7 @@ const query = graphql`
             contacts
             about_us_title
             about_us_text
-            services_title
+            read_more
             chapter_2_1
             chapter_2_2
             chapter_2_3

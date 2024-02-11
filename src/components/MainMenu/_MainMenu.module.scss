@@ -19,7 +19,7 @@ nav {
     align-content: center; */
 
     .container {
-        max-width: $headerContainer;
+        max-width: $menuContainer;
         display: flex;
         justify-content: space-between;
         margin: 0 auto;
@@ -38,9 +38,9 @@ nav {
             flex-grow: 1;
             text-align: center;
             text-decoration: none;
-            color: blue;
+            color: #249300;
             padding: 10px 0;
-            border: 1px solid #d9d9d9;
+            /* border: 1px solid #d9d9d9; */
         }
     }
 }
