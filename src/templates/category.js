@@ -9,7 +9,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 const CategoryPage = ({data, pageContext}) => {
 
   const headerImg = data.file?.childImageSharp?.gatsbyImageData
-  console.log(data)
+
   return (
     <>
       <GatsbyImage 
@@ -17,7 +17,7 @@ const CategoryPage = ({data, pageContext}) => {
         alt={`${data.mdx?.frontmatter?.title} header image`}
       />
       <h1>{data.mdx?.frontmatter?.title}</h1>
-      <p>{data.mdx?.body}</p>
+      <div dangerouslySetInnerHTML={{__html: data.mdx?.body}}></div>
     </>
   )
 }

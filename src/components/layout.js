@@ -19,7 +19,9 @@ const LocaleContext = React.createContext()
 // This e.g. enables the LocalizedLink to function correctly
 // As this component wraps every page (due to the wrapPageElement API) we can be sure to have
 // the locale available everywhere!
-const Layout = ({ children, pageContext: { locale } }) => (
+const Layout = ({ children, pageContext: { locale } }) => {
+  
+  return (
   <LocaleContext.Provider value={{ locale }}>
     <div className="global-wrapper">
       <MainMenu locale={locale} />
@@ -29,6 +31,6 @@ const Layout = ({ children, pageContext: { locale } }) => (
       </MDXProvider>
     </div>
   </LocaleContext.Provider>
-)
+)}
 
 export { Layout, LocaleContext }

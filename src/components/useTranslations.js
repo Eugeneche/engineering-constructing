@@ -37,9 +37,9 @@ const query = graphql`
             home
             projects
             contacts
-            index_H2_1
-            chapter_1
-            index_H2_2
+            about_us_title
+            about_us_text
+            services_title
             chapter_2_1
             chapter_2_2
             chapter_2_3

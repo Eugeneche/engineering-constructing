@@ -10,15 +10,14 @@ import logo1 from "../../images/logo_transparent.png"
 
 const MainMenu = ({locale}) => {
 
-  const { /* home, */
-          /* projects, */
+  const { 
           contacts
           } = useTranslations()
 
   const data = useStaticQuery(graphql`
-  query allCategories {
+  query menuCategories {
     allFile(
-      filter: {sourceInstanceName: {eq: "categories"}, extension: {eq: "mdx"}}
+      filter: {sourceInstanceName: {eq: "categories"}, extension: {eq: "mdx"}, childMdx: {frontmatter: {category: {ne: "root"}}}, name: {ne: "order"}}
     ) {
       nodes {
         relativeDirectory
@@ -33,16 +32,31 @@ const MainMenu = ({locale}) => {
         }
       }
     }
+    file(name: {eq: "order"}) {
+      childMdx {
+        frontmatter {
+          categories
+        }
+      }
+    }
   }
 `)
 
-  const directoriesWothoutDublicates = data.allFile.nodes.filter((node, i, self) => {
+  const uniqueDirsAccodrdingToOrder = []
+  const directoriesWithoutDublicates = data.allFile.nodes.filter((node, i, self) => {
     return i === self.findIndex((t) => {
       return t.childMdx.frontmatter.category === node.childMdx.frontmatter.category && node.childMdx.fields.locale === locale
     })
   })
+  const categoriesOrder = data.file.childMdx.frontmatter.categories
 
-  //const dirsFilteredByLocale = data.allFile.nodes.filter(node => node.childMdx.fields.locale === locale)
+  categoriesOrder.forEach(currentCat => {
+    directoriesWithoutDublicates.forEach(obj => {
+      obj.childMdx.frontmatter.category === currentCat && uniqueDirsAccodrdingToOrder.push(obj)
+    })
+  })
+
+  const categoriesFilteredByLocale = data.allFile.nodes.filter(node => node.childMdx.fields.locale === locale)
   //const uniqueCategoriesAccordingToLocale = Array.from(new Set(directoriesWothoutDublicates.map((obj) => obj.childMdx.frontmatter.category)))
 
   return (
@@ -53,10 +67,21 @@ const MainMenu = ({locale}) => {
       </div>
       <div className={style.container}>
         <div className={style.pages}>
-          {directoriesWothoutDublicates.map(obj => {
-            const topLevelSlug = obj.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase().split('/')[0]
+          {categoriesOrder.map(currentCat => {
+
+            let menuPoint, topLevelSlug, worksList = []
+
+            categoriesFilteredByLocale.forEach(obj1 => {
+
+              if (obj1.relativeDirectory.split('/')[0] === currentCat) {
+                menuPoint = obj1.childMdx.frontmatter.category
+                topLevelSlug = currentCat.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase().split('/')[0]
+                worksList.push(obj1)
+              }
+            })
+            
             return (
-              <NavLink key={obj.id} to={`/${topLevelSlug}`}>{obj.childMdx.frontmatter.category}</NavLink>
+              <NavLink key={currentCat} to={`/${topLevelSlug}`}>{menuPoint}</NavLink>
             )
           })}
           {/* <AnchorLink to={locale === `en` ? `/#projects` : `/${locale}/#projects`}>{projects}</AnchorLink> */}

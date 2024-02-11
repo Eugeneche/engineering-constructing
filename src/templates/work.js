@@ -7,7 +7,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 //import ImagesSwiper from "../components/ImagesSwiper/ImagesSwiper"
 
 
-const workTemplate = ({data, pageContext, children}) => {
+const WorkTemplate = ({data, children, pageContext}) => {
 
   const headerImg = data.file?.childImageSharp?.gatsbyImageData
 
@@ -18,11 +18,11 @@ const workTemplate = ({data, pageContext, children}) => {
         alt={`${data.mdx?.frontmatter?.title} header image`}
       />
       <h1>{data.mdx?.frontmatter?.title}</h1>
-      <p>{data.mdx?.body}</p>
+      <div dangerouslySetInnerHTML={{__html: data.mdx?.body}}></div>
     </>
 )}
 
-export default workTemplate
+export default WorkTemplate
 
 export const Head = ({ data }) => (
   <Seo title="title" description="description"/* {data?.mdx?.frontmatter.seo_title} description={data?.mdx?.frontmatter.seo_description} */>

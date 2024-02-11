@@ -1,17 +1,22 @@
 import * as React from "react"
+import useTranslations from "../components/useTranslations"
 //import { Link } from "gatsby"
 
 import Seo from "../components/seo"
 
-const SecondPage = () => {
+const Contacts = () => {
+
+  const {
+    contacts
+  } = useTranslations()
   
   return (
   <>
-    <h1>SecondPage</h1>
+    <h1>{contacts}</h1>
   </>
   )
 }
 
 export const Head = () => <Seo title="Page two" />
 
-export default SecondPage
+export default Contacts

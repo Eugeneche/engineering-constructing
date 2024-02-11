@@ -1,28 +1,141 @@
 import * as React from "react"
 //import { Link } from "gatsby"
-//import { StaticImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
+import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
+import useTranslations from "../components/useTranslations"
 
-//import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Header from "../components/Header/Header"
-//import * as styles from "../components/index.module.css"
+import * as styles from "../style/_style.module.scss"
+import LocalizedLink from "../components/localizedLink"
 
 
-const IndexPage = () => {
-  
+const IndexPage = ({ data, pageContext: { locale }}) => {
+
+  const {
+    about_us_title,
+    about_us_text,
+  } = useTranslations()
+
+  const uniqueDirsAccodrdingToOrder = []
+  const categoriesOrder = data.file.childMdx.frontmatter.categories
+  //const allCategories = data.allFile.nodes
+  const categoriesFilteredByLocale = data.allFile.nodes.filter(node => node.childMdx.fields.locale === locale)
+  const directoriesWithoutDublicates = data.allFile.nodes.filter((node, i, self) => {
+    return i === self.findIndex((t) => {
+      return t.childMdx.frontmatter.category === node.childMdx.frontmatter.category && node.childMdx.fields.locale === locale
+    })
+  })
+  categoriesOrder.forEach(currentCat => {
+    directoriesWithoutDublicates.forEach(obj => {
+      obj.childMdx.frontmatter.category === currentCat && uniqueDirsAccodrdingToOrder.push(obj)
+    })
+  })
+
   return (
-  <>
-    <Header />
-    <h1>Home</h1>
-  </>
+    <>
+      <Header />
+      <section>
+        <div className={styles.container}>
+          <div className={styles.about}>
+            <div className={styles.aboutInfo}>
+              <h2>{about_us_title}</h2>
+              <p>{about_us_text}</p>
+            </div>            
+            <StaticImage
+              src="../images/about.jpg"
+              alt="electrician installs electrical equipment"
+            />
+          </div>
+        </div>
+      </section>
+
+      {categoriesOrder.map(currentCat => {
+
+        let title
+        let worksList = []
+        categoriesFilteredByLocale.forEach(obj1 => {
+          if (obj1.relativeDirectory.split('/')[0] === currentCat) {
+            title = obj1.childMdx.frontmatter.category
+            worksList.push(obj1)
+          }
+        })
+          return (
+            <section key={currentCat}>
+
+              <div className={styles.container}>             
+              <h2 className={styles.serviceTitle}>{title}</h2>
+                {worksList.map(obj2 => {
+
+                  return (
+                    <div key={obj2.childMdx.id}>
+                      {worksList.length === 1 ?
+                        <div className={styles.monoService}>
+                          <GatsbyImage 
+                            image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
+                            alt={obj2.childMdx.frontmatter.title}
+                          />
+                          <p>{obj2.childMdx.excerpt}</p>
+                        </div>
+                         :
+                        <div className={styles.multiplyServices}>
+                          <h3 className={styles.subserviceTitle}>{obj2.childMdx.frontmatter.title}</h3>
+                          <GatsbyImage 
+                            image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
+                            alt={obj2.childMdx.frontmatter.title}
+                          />
+                          <p>{obj2.childMdx.excerpt}
+                            <LocalizedLink to={`/${obj2.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>Read more</LocalizedLink>
+                          </p>
+                        </div>                        
+                      }
+                    </div>
+                  )
+                })}
+              </div>
+            </section>
+          )
+      })}
+    </>
   )
 }
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
+
+export const query = graphql`
+query getMainPageData {
+  file(name: {eq: "order"}) {
+    name
+    childMdx {
+      frontmatter {
+        categories
+      }
+    }
+  }
+  allFile(
+    filter: {sourceInstanceName: {eq: "categories"}, name: {ne: "order"}, extension: {eq: "mdx"}, childMdx: {frontmatter: {category: {ne: "root"}}}}
+  ) {
+    nodes {
+      childMdx {
+        frontmatter {
+          category
+          title
+          image {
+            childImageSharp {
+              gatsbyImageData(aspectRatio: 1)
+            }
+          }
+        }
+        fields {
+          locale
+        }
+        id
+        excerpt(pruneLength: 150)
+      }
+      relativeDirectory
+    }
+  }
+}
+`

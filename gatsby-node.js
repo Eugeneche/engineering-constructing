@@ -72,8 +72,8 @@ exports.onCreateNode = ({ node, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const workTemplate = require.resolve(`./src/templates/work.js`)
-  const categoryTemplate = require.resolve(`./src/templates/category.js`)
+  const workTemplate = path.resolve(`./src/templates/work.js`)
+  const categoryTemplate = path.resolve(`./src/templates/category.js`)
 
   const { data } = await graphql(`
   query getRootCategories {
@@ -124,8 +124,6 @@ exports.createPages = async ({ graphql, actions }) => {
     return
   }
 
-  //const workstList = data.allFile.nodes
-
   data.allFile.nodes.forEach(node => {
     const slug = node.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase().split('/')[0]
     const id = node.childMdx.id
@@ -147,10 +145,8 @@ exports.createPages = async ({ graphql, actions }) => {
   works.data.allFile.nodes.forEach(node => {
 
     const slug = node.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
-
     const id = node.childMdx.id
     const directory = node.relativeDirectory
-
     const locale = node.childMdx.fields.locale
     const isDefault = node.childMdx.fields.isDefault
 
@@ -165,4 +161,3 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
-
