@@ -107,9 +107,7 @@
         margin: 5px 0;
     }
 
-    img {
-        height: 250px;
-    }
+
 
     a {
         color: inherit;
@@ -121,6 +119,10 @@
     border: 1px solid #d3d3d3;
     background: #ffffff;
     transition: background ease .4s;
+
+    img {
+        height: 250px;
+    }
 
     &:hover {
         background: #d3d3d3;
