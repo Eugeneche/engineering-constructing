@@ -8,12 +8,12 @@ import * as styles from "../style/_style.module.scss"
 //import ContentSliderItemCategory from "../ContentSlider/ContentSliderItemCategory"
 
 const CategoryPage = ({data, pageContext}) => {
-console.log(pageContext)
+
   const headerImg = data.file?.childImageSharp?.gatsbyImageData
   const worksFromCurrentDir = data.allFile.nodes.filter(node => {
     return node.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase().split('/')[0] === pageContext.directory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()
   })
-console.log(worksFromCurrentDir)
+
   return (
     <>
       <GatsbyImage 
