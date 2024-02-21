@@ -28,18 +28,33 @@ nav {
 
     .pages {
         display: flex;
-        align-items: center;
+        flex-direction: row;
+        /* flex-wrap: wrap; */
+        justify-content: space-evenly;
+        /* display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-rows: repeat(2, 1fr);
+        box-sizing: border-box; */
+        /* grid-template-columns: repeat(auto-fit, 1fr); */
+        /* grid-template-columns: auto; */
+  /* grid-template-rows: masonry; */
+        /* grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); */
+        /* grid-template-rows: 30px 30px; */
+        width: 100%;
+        /* align-items: center; */
         flex-grow: 1;
         text-transform: uppercase;    
 
         a {
-            display: block;
-            width: max-content;
+            /* display: block; */
+            /* width: max-content; */
             flex-grow: 1;
             text-align: center;
             text-decoration: none;
             color: #249300;
-            padding: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+            border-right: 1px solid grey;
             /* border: 1px solid #d9d9d9; */
         }
     }
