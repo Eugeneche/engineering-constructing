@@ -120,12 +120,20 @@
     background: #ffffff;
     transition: background ease .4s;
 
-    img {
-        height: 250px;
+    a {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 250px 1fr;
     }
 
+    .work-item-image {
+        height: 100%;
+    }
+    
     &:hover {
         background: #d3d3d3;
     }
 }
+
+
 

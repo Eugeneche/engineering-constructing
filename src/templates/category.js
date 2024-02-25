@@ -32,7 +32,7 @@ const CategoryPage = ({data, pageContext}) => {
                   <GatsbyImage                    
                     image={obj.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
                     alt={obj.childMdx.frontmatter.title}
-                    imgStyle={{height: "250px"}}
+                    className={styles.workItemImage}
                   />
                   <h3>{obj.childMdx.frontmatter.title}</h3>
                 </LocalizedLink>
