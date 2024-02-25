@@ -91,7 +91,7 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
                             image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
                             alt={obj2.childMdx.frontmatter.title}
                           />
-                          <div>
+                          <div className={styles.teaser}>
                             <p dangerouslySetInnerHTML={{ __html: obj2.childMdx.frontmatter.teaser }}></p>
 
                             <LocalizedLink to={`/${obj2.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>{read_more}</LocalizedLink>
@@ -137,7 +137,7 @@ query getMainPageData {
           teaser
           image {
             childImageSharp {
-              gatsbyImageData(aspectRatio: 1)
+              gatsbyImageData
             }
           }
         }

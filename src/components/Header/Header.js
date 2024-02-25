@@ -7,6 +7,7 @@ const Header = () => {
     return (
         <>
             <StaticImage
+                className={styles.headerImage}
                 src="../../images/main_header.jpg"
                 alt="electric equipment"
             />
