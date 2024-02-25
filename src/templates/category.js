@@ -29,10 +29,10 @@ const CategoryPage = ({data, pageContext}) => {
             return (
               <div className={styles.workItem} key={obj.id}>
                 <LocalizedLink to={`/${obj.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>
-                  <GatsbyImage 
-                    
+                  <GatsbyImage                    
                     image={obj.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
                     alt={obj.childMdx.frontmatter.title}
+                    imgStyle={{height: "250px"}}
                   />
                   <h3>{obj.childMdx.frontmatter.title}</h3>
                 </LocalizedLink>
