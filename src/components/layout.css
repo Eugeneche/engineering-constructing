@@ -68,7 +68,7 @@ h2 {
 
 h3 {
   line-height: normal;
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 5vw, 1.3rem);
   font-weight: 700;
   text-transform: uppercase;
   /* color: #383838; */
