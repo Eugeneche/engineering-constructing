@@ -127,7 +127,7 @@ html, body {
 main {
   flex-grow: 1;
   /* background: #fbfbfb; */
-  padding-top: 87px;  /* for case when main menu has position fixed */
+  padding-top: 110px;  /* for case when main menu has position fixed */
 }
 
  /* for case when main menu has position fixed */
