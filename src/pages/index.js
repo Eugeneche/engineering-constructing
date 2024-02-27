@@ -88,7 +88,7 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
                       )
                     })
                   :     
-                  <swiper-container slides-per-view="2" speed="500" loop="true" navigation="true" /* autoplay="true" */ space-between="20">          
+                  <swiper-container slides-per-view="2" speed="500" loop="true" navigation="true" autoplay="true" space-between="20">          
                   {worksList.map(obj2 => {                  
                     return (
                       <swiper-slide key={obj2.childMdx.id}>
