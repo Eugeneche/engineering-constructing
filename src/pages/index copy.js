@@ -36,20 +36,20 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
   return (
     <>
       <Header />
-
-      <div className={styles.container}>
-        <div className={styles.about}>
-          <div className={styles.aboutInfo}>
-            <h2>{about_us_title}</h2>
-            <p>{about_us_text}</p>
-          </div>            
-          <StaticImage
-            src="../images/about.jpg"
-            alt="electrician installs electrical equipment"
-          />
+      <section>
+        <div className={styles.container}>
+          <div className={styles.about}>
+            <div className={styles.aboutInfo}>
+              <h2>{about_us_title}</h2>
+              <p>{about_us_text}</p>
+            </div>            
+            <StaticImage
+              src="../images/about.jpg"
+              alt="electrician installs electrical equipment"
+            />
+          </div>
         </div>
-      </div>
-
+      </section>
 
       {categoriesOrder.map(currentCat => {
 
@@ -66,33 +66,31 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
 
               <div className={styles.container}>             
               <h2 className={styles.serviceTitle}>{title}</h2>
-              
-              
+              <div className={worksList.length === 1 ? styles.monoService : styles.multiplyServices}>
+                
                 {worksList.length === 1 ? 
-                  
                   worksList.map(obj2 => {                  
-                    return (
-                      <div key={obj2.childMdx.id}>
-                          <div className={styles.singleServiceItem}>
-                            <GatsbyImage 
-                              image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
-                              alt={obj2.childMdx.frontmatter.title}
-                            />
-                            <div className={styles.teaser}>
-                              <p dangerouslySetInnerHTML={{ __html: obj2.childMdx.frontmatter.teaser }}></p>
+                  return (
+                    <div key={obj2.childMdx.id}>
+                        <div className={styles.serviceItem}>
+                          <GatsbyImage 
+                            image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
+                            alt={obj2.childMdx.frontmatter.title}
+                          />
+                          <div>
+                            <p dangerouslySetInnerHTML={{ __html: obj2.childMdx.frontmatter.teaser }}></p>
 
-                              <LocalizedLink to={`/${obj2.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>{read_more}</LocalizedLink>
-                            </div> 
-                          </div>
-                      </div>
-                      )
-                    })
-                  :     
-                  <swiper-container slides-per-view="2" speed="500" loop="true" navigation="true" /* autoplay="true" */ space-between="20">          
-                  {worksList.map(obj2 => {                  
-                    return (
-                      <swiper-slide key={obj2.childMdx.id}>
-                        <div className={styles.multiplyServiceItem}>
+                            <LocalizedLink to={`/${obj2.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>{read_more}</LocalizedLink>
+                          </div> 
+                        </div>
+                    </div>
+                  )
+                })
+                :
+                worksList.map(obj2 => {                  
+                  return (
+                    <div key={obj2.childMdx.id}>
+                        <div className={styles.serviceItem}>
                           
                           <h3 className={styles.subserviceTitle}>{obj2.childMdx.frontmatter.title}</h3>
                           <GatsbyImage
@@ -106,13 +104,45 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
                           </div>
 
                         </div> 
-                      </swiper-slide>
-                    )
-                  })}
-                  </swiper-container>
+                    </div>
+                  )
+                })
                 }
-                
-                
+                {worksList.map(obj2 => {                  
+                  return (
+                    <div key={obj2.childMdx.id}>
+                      {worksList.length === 1 ?
+                        <div className={styles.serviceItem}>
+                          <GatsbyImage 
+                            image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
+                            alt={obj2.childMdx.frontmatter.title}
+                          />
+                          <div>
+                            <p dangerouslySetInnerHTML={{ __html: obj2.childMdx.frontmatter.teaser }}></p>
+
+                            <LocalizedLink to={`/${obj2.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>{read_more}</LocalizedLink>
+                          </div> 
+                        </div>
+                         :
+                        <div className={styles.serviceItem}>
+                          
+                          <h3 className={styles.subserviceTitle}>{obj2.childMdx.frontmatter.title}</h3>
+                          <GatsbyImage
+                            image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
+                            alt={obj2.childMdx.frontmatter.title}
+                          />
+                          <div className={styles.teaser}>
+                            <p dangerouslySetInnerHTML={{ __html: obj2.childMdx.frontmatter.teaser }}></p>
+
+                            <LocalizedLink to={`/${obj2.relativeDirectory.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()}`}>{read_more}</LocalizedLink>
+                          </div>
+
+                        </div>                        
+                      }
+                    </div>
+                  )
+                })}
+                </div>
 
               </div>
             </section>
