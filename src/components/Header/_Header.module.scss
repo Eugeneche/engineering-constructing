@@ -1,3 +1,45 @@
 .header-image {
     height: clamp(200px, 37vw, 500px);
 }
+
+.header {
+    position: relative;
+    height: clamp(200px, 37vw, 500px);
+
+    .headlines-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 1240px;
+        height: clamp(200px, 37vw, 500px);
+        margin: 0 auto;
+
+        h1 {
+            position: absolute;
+            bottom: 50px;
+            right: 0;
+            color: #13b300;
+            font-size: clamp(1.6rem, 5vw, 2rem);
+            text-shadow: -1px 1px 0 #000, 
+            1px 1px 0 #000, 
+           1px -1px 0 #000, 
+          -1px -1px 0 #000; 
+        }
+        
+        h2 {
+            position: absolute;
+            bottom: 20px;
+            right: 0;
+            color: yellow;
+            font-size: clamp(1.3rem, 5vw, 1.7rem);
+            text-shadow: -1px 1px 0 #000, 
+            1px 1px 0 #000, 
+           1px -1px 0 #000, 
+          -1px -1px 0 #000; 
+        }
+    }
+}
+

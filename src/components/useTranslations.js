@@ -31,7 +31,8 @@ const query = graphql`
         node {
           name
           childTranslationsJson {
-            headerHero
+            headline_1
+            headline_2
             seo_title
             seo_description
             home

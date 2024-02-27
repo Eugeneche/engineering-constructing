@@ -1,5 +1,6 @@
 {
-  "headerHero": "Řešení, která změní vaše podnikání",
+  "headline_1": "Stavíme, Opravujeme, Zlepšujeme",
+  "headline_2": "Lavori.",
   
   "home": "domů",
   "projects": "Projekty",
@@ -9,7 +10,7 @@
 
   "about_us_title": "O nás",
   "about_us_text": "Vítejte ve společnosti Lavori, vašem spolehlivém partnerovi v oblasti elektroinstalačních a stavebních služeb. Díky odborným znalostem v oblasti instalace silnoproudých elektrických sítí, instalace nízkonapěťových systémů, instalace solárních panelů a tepelných čerpadel, instalace topných systémů a zemních prací poskytujeme kompletní řešení pro vaše bytové a komerční potřeby. Náš kvalifikovaný tým zajišťuje přesnost, bezpečnost a efektivitu každého projektu. Naším cílem je zajistit vaši budoucí energetickou nezávislost a vybudovat spolehlivé, udržitelné a pohodlné prostředí. Vyberte si nás pro své projekty v oblasti elektroinstalace a stavebních služeb.",
-  "read_more": "Číst dál",
+  "read_more": "Zjistěte více",
 
   "services_title": "Naše služby",
   "chapter_2_1": "Při své práci používám výkonný framework GatsbyJS, který mi umožňuje vytvářet webové stránky se snadnou úpravou textového a multimediálního obsahu. Na webu lze zejména snadno vytvářet a odstraňovat kategorie a produkty (služby).",
