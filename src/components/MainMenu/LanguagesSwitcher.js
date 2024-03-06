@@ -3,9 +3,9 @@ import { Link } from "gatsby"
 import * as style from "./_MainMenu.module.scss"
 import { LocaleContext } from "../layout"
 
-import ukr from "../../images/ukr.svg"
+/* import ukr from "../../images/ukr.svg"
 import eng from "../../images/eng.svg"
-import cze from "../../images/cze.svg"
+import cze from "../../images/cze.svg" */
 //import LocalizedLink from "../localizedLink"
 //import useTranslations from "../useTranslations"
 
@@ -40,21 +40,27 @@ const LanguagesSwitcher = () => {
     }
   })
 
-  
+  const styleActive = {
+    fontWeight: "300",
+    textDecoration: "underline"
+  }
+
+  const styleRegular = {
+    fontWeight: "600",
+    textDecoration: "none"
+  }
+
   return (
-    <div className={style.flags}>
-      <Link to={`${path}`} hrefLang="cs">
-        {/* <img className={style.flag} src={cze} alt="czech flag"></img> */}
+    <div className={style.langs}>
+      <Link to={`${path}`} hrefLang="cs" style={locale.locale === "cs" ? styleActive : styleRegular}>
         CZ
       </Link>
       {`|`}
-      <Link to={`/en${path}`} hrefLang="en">
-        {/* <img className={style.flag} src={eng} alt="great britain flag"></img> */}
+      <Link to={`/en${path}`} hrefLang="en" style={locale.locale === "en" ? styleActive : styleRegular}>
         EN
       </Link>
       {`|`}
-      <Link to={`/uk${path}`} hrefLang="uk">
-        {/* <img className={style.flag} src={ukr} alt="ukrainian flag"></img> */}
+      <Link to={`/uk${path}`} hrefLang="uk" style={locale.locale === "uk" ? styleActive : styleRegular}>
         UA
       </Link>
     </div>
