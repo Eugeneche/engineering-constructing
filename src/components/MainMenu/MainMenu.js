@@ -127,7 +127,7 @@ const MainMenu = ({locale}) => {
           <img className={style.close} src={close} alt="close menu icon"></img>
         </button>
         <div className={style.container}>
-          <NavLink to="/"><img src={logo} alt="Lavori logo" height="50px"></img></NavLink>
+          <NavLink to="/"><img className={style.logo} src={logo} alt="Lavori logo" height="50px" onClick={() => setIsShow(false)}></img></NavLink>
           <LanguagesSwitcher />
         </div>
         <div className={style.container}>
@@ -146,11 +146,13 @@ const MainMenu = ({locale}) => {
               })
 
               return (
-                <NavLink key={currentCat} to={`/${topLevelSlug}`}>{menuPoint}</NavLink>
+                <div key={currentCat} onClick={() => setIsShow(false)}>
+                  <NavLink to={`/${topLevelSlug}`}>{menuPoint}</NavLink>
+                </div>
               )
             })}
            
-            <NavLink to="/contacts">{contacts}</NavLink>
+            <div onClick={() => setIsShow(false)}><NavLink to="/contacts">{contacts}</NavLink></div>
           </div>
         </div>
       </div>

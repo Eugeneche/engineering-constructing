@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect, useRef } from "react"
 //import { Link } from "gatsby"
 import { graphql } from "gatsby"
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
@@ -7,8 +7,12 @@ import useTranslations from "../components/useTranslations"
 import Seo from "../components/seo"
 import Header from "../components/Header/Header"
 import * as styles from "../style/_style.module.scss"
+import "../style/s.css"
 import LocalizedLink from "../components/localizedLink"
 
+//import { register } from 'swiper/element/bundle'
+import { Swiper, SwiperSlide } from "../components/Swiper/Swiper"
+import { Pagination } from 'swiper/modules'
 
 const IndexPage = ({ data, pageContext: { locale }}) => {
 
@@ -32,6 +36,7 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
       obj.childMdx.frontmatter.category === currentCat && uniqueDirsAccodrdingToOrder.push(obj)
     })
   })
+
 
   return (
     <>
@@ -62,7 +67,7 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
           }
         })
           return (
-            <section key={currentCat}>
+            <section key={currentCat} style={worksList.length === 1 ? {background: "none"} : {background: "#ebebeb", padding: "1px 0 0 0"}}>
 
               <div className={styles.container}>             
               <h2 className={styles.serviceTitle}>{title}</h2>
@@ -88,10 +93,23 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
                       )
                     })
                   :     
-                  <swiper-container slides-per-view="2" speed="500" loop="true" navigation="true" autoplay="true" space-between="20">          
+                  <Swiper init="false"/* slides-per-view="2" speed="500" loop="true" navigation="true" autoplay="true" space-between="20" *//* id={currentCat.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()} */
+                    slidesPerView={3}
+                    navigation={true}
+                    loop={true}
+                    pagination={true}
+                    modules={[Pagination]}
+                    /* autoplay={true} */
+                    spaceBetween="20"
+                    breakpoints={
+                      { 0: { slidesPerView: 1 },
+                        768: { slidesPerView: 2 }
+                     }
+                    }
+                  >          
                   {worksList.map(obj2 => {                  
                     return (
-                      <swiper-slide key={obj2.childMdx.id}>
+                      <SwiperSlide key={obj2.childMdx.id}>
                         <div className={styles.multiplyServiceItem}>
                           
                           <h3 className={styles.subserviceTitle}>{obj2.childMdx.frontmatter.title}</h3>
@@ -106,10 +124,10 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
                           </div>
 
                         </div> 
-                      </swiper-slide>
+                      </SwiperSlide>
                     )
                   })}
-                  </swiper-container>
+                  </Swiper>
                 }
                 
                 

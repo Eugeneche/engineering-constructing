@@ -64,6 +64,7 @@ h2 {
   /* font-weight: 700; */
   text-transform: uppercase;
   /* text-align: center; */
+  color: #006300;
 }
 
 h3 {
@@ -71,7 +72,7 @@ h3 {
   font-size: clamp(1.1rem, 5vw, 1.3rem);
   font-weight: 700;
   text-transform: uppercase;
-  /* color: #383838; */
+  color: #007200;
 }
 
 h4 {
@@ -128,6 +129,10 @@ main {
   flex-grow: 1;
   /* background: #fbfbfb; */
   padding-top: 100px;  /* for case when main menu has position fixed */
+}
+
+.swiper-pagination-bullet {
+  position: static !important;
 }
 
  /* for case when main menu has position fixed */
