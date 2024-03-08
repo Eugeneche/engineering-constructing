@@ -99,7 +99,9 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
                     loop={true}
                     pagination={true}
                     modules={[Pagination]}
-                    /* autoplay={true} */
+                    autoHeight={true}
+                    /* height={500} */
+                    autoplay={true}
                     spaceBetween="20"
                     breakpoints={
                       { 0: { slidesPerView: 1 },

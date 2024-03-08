@@ -25,12 +25,20 @@ export function Swiper(props) {
             .swiper-button-next,
             .swiper-button-prev {
               color: #02ff00;
+              width: 17px;
             }
             .swiper-button-next {
-              right: 0;
+              right: 2px;
             }
             .swiper-button-prev {
-              left: 0;
+              left: 2px;
+            }
+            .swiper-autoheight {
+              height: 100%;
+            }
+
+            .swiper-autoheight .swiper-wrapper {
+              align-items: stretch;
             }
         `,
         ],
