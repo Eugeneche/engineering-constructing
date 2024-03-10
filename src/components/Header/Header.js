@@ -18,8 +18,10 @@ const Header = () => {
                 alt="electric equipment"
             />
             <div className={styles.headlinesContainer}>
-                <h1>{headline_1}</h1>
-                <h2>{headline_2}</h2>
+                {/* <div className={styles.headlinesBg}> */}
+                    <h1>{headline_1}</h1>
+                    <h2>{headline_2}</h2>
+                {/* </div> */}
             </div>
 
         </div>

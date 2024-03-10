@@ -3,7 +3,6 @@
   "headline_2": "Lavori.",
   
   "home": "domů",
-  "projects": "Projekty",
   "contacts": "Kontakty",
   "seo_title": "Tvorba webových stránek, nejlepší řešení, nejlepší cena",
   "seo_description": "Vývoj moderních rychlých webových stránek. SEO nastavení, responzivní design pro všechny typy zařízení",
@@ -13,10 +12,6 @@
   "read_more": "Zjistěte více",
 
   "services_title": "Naše služby",
-  "chapter_2_1": "Při své práci používám výkonný framework GatsbyJS, který mi umožňuje vytvářet webové stránky se snadnou úpravou textového a multimediálního obsahu. Na webu lze zejména snadno vytvářet a odstraňovat kategorie a produkty (služby).",
-  "chapter_2_2": "Hlavní výhodou webových stránek vytvořených pomocí GatsbyJS je jejich vysoká rychlost načítání. Toho je dosaženo předpřipravenými stránkami HTML a převedením obrázků do moderních formátů. Vaši návštěvníci získají okamžitý přístup k obsahu, což pozitivně ovlivňuje jejich dojem a interakci s webem.",
-  "chapter_2_3": "Všechny webové stránky, které jsem navrhl, jsou samozřejmě vhodné pro mobilní zařízení. To zajistí, že se vaše webové stránky budou správně zobrazovat na všech velikostech displejů a poskytnou uživateli pozitivní zážitek bez ohledu na jeho zařízení.",
-  "chapter_2_4": "Ve většině případů můžete využít bezplatný hosting na platformě Netlify.net. Ta poskytuje bezplatný certifikát SSL, který zvyšuje hodnocení vašich webových stránek ve vyhledávačích. Kvalitní hosting můžete využívat bez dalších nákladů.",
 
   "your_name": "vaše jméno",
   "your_message": "zde napište svou zprávu",
@@ -26,7 +21,7 @@
   "name": "Jméno",
   "phone": "Telefon",
   "email": "Email",
-  "message": "Zpráva",
+  "address": "Adresa",
   "write_to_email": "Chcete si vytvořit webové stránky nebo máte nějaké dotazy? Napište nám prosím do formuláře pro zpětnou vazbu nebo poštou: ",
 
   "four_o_four_title": "Omlouváme se, ale tato stránka neexistuje.",

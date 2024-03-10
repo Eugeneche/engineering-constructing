@@ -1,11 +1,8 @@
 import React/* , { useState } */ from "react"
 import { graphql } from "gatsby"
 import Seo from "../components/seo"
-//import * as styles from "../style/_style.module.scss"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as styles from "../style/_style.module.scss"
-//import close from "../images/close_icon.svg"
-//import ImagesSwiper from "../components/ImagesSwiper/ImagesSwiper"
 
 
 const WorkTemplate = ({data, children, pageContext}) => {
@@ -20,8 +17,10 @@ const WorkTemplate = ({data, children, pageContext}) => {
         alt={`${data.mdx?.frontmatter?.title} header image`}
       />
       <div className={styles.container}>
-        <h1>{data.mdx?.frontmatter?.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.mdx?.body }}></div>
+        <div className={styles.workContent}>
+          <h1 className={styles.workTitle}>{data.mdx?.frontmatter?.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: data.mdx?.body }}></div>
+        </div>
       </div>
     </>
 )}

@@ -13,10 +13,6 @@
   "read_more": "Find out more",
 
   "services_title": "Our Services",
-  "chapter_2_1": "In my work, I use the powerful GatsbyJS framework, which allows you to create websites with convenient editing of text and multimedia content. In particular, you can easily create and delete categories and products (services) on your website.",
-  "chapter_2_2": "The main advantage of websites built with GatsbyJS is their high loading speed. This is achieved by pre-creating ready-made HTML pages and optimizing images into modern formats. Your visitors will get instant access to the content, which positively affects their impression and interaction with the site.",
-  "chapter_2_3": "Of course, all the websites I have designed are mobile-friendly. This ensures that your website will display correctly on different devices and provide a user-friendly experience regardless of their device of choice.",
-  "chapter_2_4": "In most cases, you can use free hosting on the Netlify.net platform. It provides a free SSL certificate, which increases the ranking of your website in search engines. You can enjoy high-quality hosting at no extra cost.",
 
   "your_name": "your name",
   "your_message": "your message",
@@ -26,7 +22,7 @@
   "name": "Name",
   "phone": "Phone",
   "email": "Email",
-  "message": "Message",
+  "address": "Location",
   "write_to_email": "Do you want to create a website or have any questions? Please write via the feedback form or email: ",
 
   "four_o_four_title": "Sorry, but this page does not exist.",

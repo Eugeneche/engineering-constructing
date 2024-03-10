@@ -34,9 +34,12 @@ export function Swiper(props) {
               left: 2px;
             }
             .swiper-autoheight {
-              height: 100%;
+              height: 98%;
             }
 
+            .swiper-pagination {
+              margin-top: 10px;
+            }
             .swiper-autoheight .swiper-wrapper {
               align-items: stretch;
             }

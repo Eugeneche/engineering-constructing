@@ -41,17 +41,18 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
   return (
     <>
       <Header />
-
-      <div className={styles.container}>
-        <div className={styles.about}>
-          <div className={styles.aboutInfo}>
-            <h2>{about_us_title}</h2>
-            <p>{about_us_text}</p>
-          </div>            
-          <StaticImage
-            src="../images/about.jpg"
-            alt="electrician installs electrical equipment"
-          />
+      <div className={styles.aboutWrapper}>
+        <div className={styles.container}>
+          <div className={styles.about}>
+            <div className={styles.aboutInfo}>
+              <h2>{about_us_title}</h2>
+              <p>{about_us_text}</p>
+            </div>            
+            <StaticImage
+              src="../images/about.jpg"
+              alt="electrician installs electrical equipment"
+            />
+          </div>
         </div>
       </div>
 
@@ -93,15 +94,14 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
                       )
                     })
                   :     
-                  <Swiper init="false"/* slides-per-view="2" speed="500" loop="true" navigation="true" autoplay="true" space-between="20" *//* id={currentCat.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[" "]/g, "-").toLowerCase()} */
+                  <Swiper init="false"
                     slidesPerView={3}
                     navigation={true}
                     loop={true}
                     pagination={true}
                     modules={[Pagination]}
                     autoHeight={true}
-                    /* height={500} */
-                    autoplay={true}
+                    /* autoplay={true} */
                     spaceBetween="20"
                     breakpoints={
                       { 0: { slidesPerView: 1 },

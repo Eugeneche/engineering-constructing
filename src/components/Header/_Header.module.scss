@@ -4,7 +4,7 @@
 
 .header {
     position: relative;
-    height: clamp(200px, 37vw, 500px);
+    height: clamp(195px, 36vw, 500px);
 
     .headlines-container {
         position: absolute;
@@ -17,29 +17,65 @@
         height: clamp(200px, 37vw, 500px);
         margin: 0 auto;
 
-        h1 {
+        /* .headlines-bg {
             position: absolute;
-            bottom: 50px;
-            right: 15px;
-            color: #13b300;
-            font-size: clamp(1.6rem, 5vw, 2rem);
-            text-shadow: -1px 1px 0 #000, 
-            1px 1px 0 #000, 
-           1px -1px 0 #000, 
-          -1px -1px 0 #000; 
-        }
-        
-        h2 {
-            position: absolute;
-            bottom: 20px;
-            right: 15px;
-            color: yellow;
-            font-size: clamp(1.3rem, 5vw, 1.7rem);
-            text-shadow: -1px 1px 0 #000, 
-            1px 1px 0 #000, 
-           1px -1px 0 #000, 
-          -1px -1px 0 #000; 
-        }
+            right: 0;
+            bottom: 0;
+            width: auto;
+            height: auto;
+            background-color: #00000080; */
+
+            h1 {
+                position: absolute;
+                bottom: clamp(0px, 1vw, 25px);
+                padding: 10px 10px clamp(50px, 9vw, 60px);
+                right: 15px;
+                color: #19ed00;
+                font-size: clamp(1.2rem, 4vw, 2rem);
+                text-align: right;
+                line-height: inherit;
+                margin: clamp(-10px, 2vw, 20px) 0;
+                text-shadow: -1px 1px 0 #000, 
+                1px 1px 0 #000, 
+                1px -1px 0 #000, 
+                -1px -1px 0 #000; 
+                background: #00000088;
+                border: 1px solid #454545;
+
+            }
+            
+            h2 {
+                position: absolute;
+                bottom: clamp(25px, 5vw, 46px);
+                right: 15px;
+                padding: 0 10px;
+                color: yellow;
+                font-size: clamp(1.0rem, 3vw, 1.7rem);
+                text-shadow: -1px 1px 0 #000, 
+                1px 1px 0 #000, 
+                1px -1px 0 #000, 
+                -1px -1px 0 #000; 
+            }
+        /* } */
+
+
     }
 }
 
+@media screen and (min-width: 1920px) {
+
+    .header-image {
+        max-height: 1000px;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .headlines-container { 
+
+        h1 {
+            width: min-content;
+        }
+    }
+}

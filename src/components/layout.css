@@ -54,22 +54,21 @@ h1 {
   font-weight: 600;
   margin: clamp(1.2rem, 2vw, 1.5rem) 0;
   text-transform: uppercase;
-  text-align: center;
-  /* color: #181818; */
 }
 
 h2 {
   line-height: normal;
-  font-size: clamp(1.3rem, 5vw, 1.8rem);
-  /* font-weight: 700; */
+  font-size: clamp(1.3rem, 5vw, 1.6rem); 
   text-transform: uppercase;
+  /* font-weight: 700;
+  
   /* text-align: center; */
-  color: #006300;
+  /* color: #006300; */
 }
 
 h3 {
   line-height: normal;
-  font-size: clamp(1.1rem, 5vw, 1.3rem);
+  font-size: clamp(1rem, 4vw, 1.2rem);
   font-weight: 700;
   text-transform: uppercase;
   color: #007200;
@@ -127,7 +126,6 @@ html, body {
 
 main {
   flex-grow: 1;
-  /* background: #fbfbfb; */
   padding-top: 100px;  /* for case when main menu has position fixed */
 }
 

@@ -41,10 +41,6 @@ const query = graphql`
             about_us_title
             about_us_text
             read_more
-            chapter_2_1
-            chapter_2_2
-            chapter_2_3
-            chapter_2_4
             your_name
             your_message
             your_email
@@ -53,7 +49,7 @@ const query = graphql`
             name
             phone
             email
-            message
+            address
             write_to_email
             four_o_four_title
             four_o_four_text
