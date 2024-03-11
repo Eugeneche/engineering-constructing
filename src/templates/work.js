@@ -28,7 +28,7 @@ const WorkTemplate = ({data, children, pageContext}) => {
 export default WorkTemplate
 
 export const Head = ({ data }) => (
-  <Seo title="title" description="description"/* {data?.mdx?.frontmatter.seo_title} description={data?.mdx?.frontmatter.seo_description} */>
+  <Seo title={data?.mdx?.frontmatter.seo_title} description={data?.mdx?.frontmatter.seo_description}>
     <script type="application/ld+json">{JSON.stringify({})}</script>
   </Seo>
 )

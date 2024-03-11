@@ -48,8 +48,8 @@ const CategoryPage = ({data, pageContext}) => {
 
 export default CategoryPage
 
-export const Head = ({ data, pageContext }) => (
-  <Seo title="title" description="description"/* {pageContext.categoryName} description={`CRUISEEASE Car rental. ${pageContext.categoryName} - without a deposite, fast, convenient`} */>
+export const Head = ({ data }) => (
+  <Seo title={data?.mdx?.frontmatter.seo_title} description={data?.mdx?.frontmatter.seo_description}>
     <script type="application/ld+json">{JSON.stringify({})}</script>
   </Seo>
 )

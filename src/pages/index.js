@@ -142,7 +142,7 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
   )
 }
 
-export const Head = () => <Seo title="Home" />
+/* export const Head = () => <Seo title="Home" /> */
 
 export default IndexPage
 
@@ -180,5 +180,36 @@ query getMainPageData {
       relativeDirectory
     }
   }
+  allMdx(
+    filter: {frontmatter: {index_seo_description: {ne: null}, index_seo_title: {ne: null}}}
+  ) {
+    nodes {
+      frontmatter {
+        index_seo_description
+        index_seo_title
+      }
+      fields {
+        locale
+      }
+    }
+  }
 }
 `
+export const Head = ({ data, pageContext: { locale } }) => {
+
+  const localData = data.allMdx.nodes
+  let title, description
+
+  localData.forEach(el => {
+    if (el.fields.locale === locale) {
+      title = el.frontmatter.index_seo_title
+      description = el.frontmatter.index_seo_description
+    }
+  })
+  
+  return ( 
+    <>
+      <Seo title={title} description={description} />
+    </>
+  )
+}

@@ -11,8 +11,8 @@ module.exports = {
   siteMetadata: {
     title: `Lavori | Stavební a montážní práce`,
     description: `Stavební a instalační práce`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    author: `@websolutionsforyou.com`,
+    siteUrl: `https://lavoritech.cz/`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -22,6 +22,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `index`,
+        path: `${__dirname}/data/index`,
       },
     },
     {
