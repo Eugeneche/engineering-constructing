@@ -12,7 +12,7 @@ module.exports = {
     title: `Lavori | Stavební a montážní práce`,
     description: `Stavební a instalační práce`,
     author: `@websolutionsforyou.com`,
-    siteUrl: `https://lavoritech.cz/`,
+    siteUrl: `https://lavoritech.cz`,
   },
   plugins: [
     `gatsby-plugin-image`,
