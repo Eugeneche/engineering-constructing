@@ -1,12 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
 module.exports = {
   siteMetadata: {
     title: `Lavori | Stavební a montážní práce`,
@@ -50,7 +41,36 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-json`,
-    `gatsby-plugin-sitemap`,
+    
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+          {
+            getAllPages {
+              allSitePage {
+                nodes {
+                  path
+                  pageContext
+                }
+              }
+              site {
+                siteMetadata {
+                  siteUrl
+                }
+              }
+            }
+          }
+        `,
+        serialize: ({ path, pageContext }) => {
+          return {
+            url: path,
+            lastmod: pageContext?.lastMod,
+          }
+        },
+      }
+    },
+    `gatsby-plugin-git-lastmod`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
