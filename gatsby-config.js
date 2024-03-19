@@ -63,6 +63,7 @@ module.exports = {
             }
           }
         `,
+        output: `/`,
         excludes: ['/en/404.html', '/uk/404.html', '/en/404/', '/uk/404/'],
         resolveSiteUrl: () => `https://lavoritech.cz`,
         serialize: ({ path, pageContext }) => {
