@@ -82,6 +82,7 @@ exports.createPages = async ({ graphql, actions }) => {
     ) {
       nodes {
         relativeDirectory
+        modifiedTime
         childMdx {
           id
           fields {
@@ -104,6 +105,7 @@ exports.createPages = async ({ graphql, actions }) => {
     ) {
       nodes {
         relativeDirectory
+        modifiedTime
         childMdx {
           id
           fields {
@@ -130,6 +132,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const directory = node.relativeDirectory
     const locale = node.childMdx.fields.locale
     const isDefault = node.childMdx.fields.isDefault
+    const modifiedTime = node.modifiedTime
 
     createPage({
       path: localizedSlug({ isDefault, locale, slug }),
@@ -138,6 +141,7 @@ exports.createPages = async ({ graphql, actions }) => {
         locale,
         id,
         directory,
+        modifiedTime, 
       },
     })
   })
@@ -149,6 +153,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const directory = node.relativeDirectory
     const locale = node.childMdx.fields.locale
     const isDefault = node.childMdx.fields.isDefault
+    const modifiedTime = node.modifiedTime
 
     createPage({
       path: localizedSlug({ isDefault, locale, slug }),
@@ -157,6 +162,7 @@ exports.createPages = async ({ graphql, actions }) => {
         locale,
         id,
         directory,
+        modifiedTime,
       },
     })
   })
