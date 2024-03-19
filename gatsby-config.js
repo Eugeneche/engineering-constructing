@@ -63,8 +63,7 @@ module.exports = {
             }
           }
         `,
-        output: `/sitemap.xml`,
-        excludes: ['https://lavoritech.cz/en/404.html', 'https://lavoritech.cz/uk/404.html', 'https://lavoritech.cz/en/404/', 'https://lavoritech.cz/uk/404/'],
+        excludes: ['/en/404.html', '/uk/404.html', '/en/404/', '/uk/404/'],
         resolveSiteUrl: () => `https://lavoritech.cz`,
         serialize: ({ path, pageContext }) => {
           return {
