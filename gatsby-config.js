@@ -61,16 +61,11 @@ module.exports = {
                 pageContext
               }
             }
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
           }
         `,
-        serialize: ({ site, allSitePage }) => {
+        serialize: ({ allSitePage }) => {
           return {
-            url: `${site.siteMetadata.siteUrl}${allSitePage.nodes.path}`,
+            url: `https://lavoritech.cz${allSitePage.nodes.path}`,
             lastmod: allSitePage.nodes.pageContext.modifiedTime,
           }
         },
