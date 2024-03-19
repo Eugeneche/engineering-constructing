@@ -63,10 +63,11 @@ module.exports = {
             }
           }
         `,
-        serialize: ({ allSitePage }) => {
+        resolveSiteUrl: () => `https://lavoritech.cz`,
+        serialize: ({ path, pageContext }) => {
           return {
-            url: `https://lavoritech.cz${allSitePage.nodes.path}`,
-            lastmod: allSitePage.nodes.pageContext.modifiedTime,
+            url: path,
+            lastmod: pageContext.modifiedTime,
           }
         },
       }
