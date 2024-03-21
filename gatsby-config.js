@@ -74,6 +74,27 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://lavoritech.cz',
+        sitemap: 'https://lavoritech.cz/sitemap-index.xml',
+        policy: [{userAgent: '*', allow: '/', disallow: ['/en/404.html', '/uk/404.html', '/en/404/', '/uk/404/', '/*?utm_source=', '/*?utm_medium=', '/*?utm_campaign=']}],
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-LPZHY0VHE4" 
+        ],
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+          exclude: []
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
