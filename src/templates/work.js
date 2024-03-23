@@ -1,4 +1,4 @@
-import React/* , { useState } */ from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Seo from "../components/seo"
 import { GatsbyImage } from "gatsby-plugin-image"

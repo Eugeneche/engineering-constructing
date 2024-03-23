@@ -33,24 +33,10 @@ const query = graphql`
           childTranslationsJson {
             headline_1
             headline_2
-            seo_title
-            seo_description
-            home
-            projects
             contacts
             about_us_title
             about_us_text
             read_more
-            your_name
-            your_message
-            your_email
-            your_phone
-            send
-            name
-            phone
-            email
-            address
-            write_to_email
             four_o_four_title
             four_o_four_text
           }

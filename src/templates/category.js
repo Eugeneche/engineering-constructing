@@ -1,11 +1,9 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-//import * as catsStyle from "./_categoryPage.module.scss"
 import Seo from "../components/seo"
 import { GatsbyImage } from "gatsby-plugin-image"
 import LocalizedLink from "../components/localizedLink"
 import * as styles from "../style/_style.module.scss"
-//import ContentSliderItemCategory from "../ContentSlider/ContentSliderItemCategory"
 
 const CategoryPage = ({data, pageContext}) => {
 

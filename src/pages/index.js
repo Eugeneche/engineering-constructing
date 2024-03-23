@@ -1,16 +1,12 @@
-import React, { useEffect, useRef } from "react"
-//import { Link } from "gatsby"
+import React from "react"
 import { graphql } from "gatsby"
 import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import useTranslations from "../components/useTranslations"
-
 import Seo from "../components/seo"
 import Header from "../components/Header/Header"
 import * as styles from "../style/_style.module.scss"
 import "../style/s.css"
 import LocalizedLink from "../components/localizedLink"
-
-//import { register } from 'swiper/element/bundle'
 import { Swiper, SwiperSlide } from "../components/Swiper/Swiper"
 import { Pagination } from 'swiper/modules'
 
@@ -114,7 +110,7 @@ const IndexPage = ({ data, pageContext: { locale }}) => {
                       <SwiperSlide key={obj2.childMdx.id}>
                         <div className={styles.multiplyServiceItem}>
                           
-                          <h3 className={styles.subserviceTitle}>{obj2.childMdx.frontmatter.title}</h3>
+                          <h3>{obj2.childMdx.frontmatter.title}</h3>
                           <GatsbyImage
                             image={obj2.childMdx.frontmatter.image.childImageSharp.gatsbyImageData}
                             alt={obj2.childMdx.frontmatter.title}
